@@ -74,10 +74,28 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+# # 默认使用 sqlite3 数据库
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+# 配置数据库
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 注册我们自己使用的数据库连接（ps:键必须都是大写）
+        'ENGINE': 'django.db.backends.mysql',   # 数据库引擎
+        'NAME': 'djangogirls',                  # 数据库名【django可以自动建表，但不能帮你创建数据库】
+        'USER':'root',                          # 连接数据库的用户名
+        'PASSWORD':'root',                      # 用户密码
+        'HOST': '',                             # 数据库主机，默认为localhost
+        'PORT': '',                             # 数据库端口，MySQL默认为3306
+        # 'HOST':'127.0.0.1',
+        # 'PORT':'3306',
+        'OPTIONS': {
+            'autocommit': True,
+        },
     }
 }
 
