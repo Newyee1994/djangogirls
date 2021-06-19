@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'accounts/login/', views.login, name='login'),
-    url(r'accounts/logout/', views.logout, name='logout'),
+    url(r'^accounts/login/$', views.login, name='login'),
+    url(r'^accounts/logout/$', views.logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     url(r'^blog/', include('blog.urls')),   # 按项目独立引入，保持文件简洁
 ]
