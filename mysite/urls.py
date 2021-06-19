@@ -20,5 +20,6 @@ from django.contrib.auth import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'accounts/login/', views.login, name='login'),
+    url(r'accounts/logout/', views.logout, name='logout'),
     url(r'^blog/', include('blog.urls')),   # 按项目独立引入，保持文件简洁
 ]

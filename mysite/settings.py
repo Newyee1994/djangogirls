@@ -140,4 +140,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-LOGIN_REDIRECT_URL = '/blog'    # 登录成功后重定向的页面
+LOGIN_REDIRECT_URL = '/blog/'    # 登录成功后重定向的页面
+LOGOUT_REDIRECT_URL = '/blog/'    # 注销成功后重定向的页面
