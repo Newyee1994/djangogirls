@@ -18,4 +18,17 @@
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
+
+    <hr>{#Horizontal Rule：显示一条水平线，表示话题的转移，效果在视觉上将文档分割成各个部分#}
+
+    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add Comment</a>
+    {% for comment in post.comments.all %}
+        <div class="comment">
+            <div class="date">{{ comment.created_date }}</div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaksbr }}</p>
+        </div>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
 {% endblock %}
